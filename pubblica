@@ -1,0 +1,4 @@
+#! /bin/bash
+
+cp *.json *.png *.png ~/.vscode/extensions/cros-svelte
+cp snippets/* ~/.vscode/extensions/cros-svelte/snippets
