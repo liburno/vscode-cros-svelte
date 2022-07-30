@@ -3,8 +3,14 @@
   "displayName": "cros-svelte",
   "description": "cros-svelte",
   "version": "1.0.0",
+  "publisher":"croswil",
+  "icon": "logo.png",
   "engines": {
     "vscode": "^1.69.0"
+  },
+  "repository": {
+    "type":"git",
+    "url": "https://github.com/liburno/vscode-cros-svelte"
   },
   "categories": [
     "Snippets"
@@ -14,6 +20,18 @@
       {
         "language": "javascript",
         "path": "./snippets/snippets.code-snippets"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/canvas.code-snippets"
+      },
+      {
+        "language": "svelte",
+        "path": "./snippets/svelte.code-snippets"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/BK.code-snippets"
       }
     ]
   }

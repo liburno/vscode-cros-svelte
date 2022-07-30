@@ -1,0 +1,66 @@
+{
+    "BK file": {
+        "prefix": ":bfile",
+        "body": [
+            "import fs from 'fs';",
+            "import path from 'path';",
+            "import express from 'express'",
+            "const router = express.Router();",
+            "import { Response, dm, B, init } from './base/base.js';",
+            "",
+            "export default router;",
+            "",
+            "/* **********************************************************************************************",
+            "         funzioni base ",
+            "********************************************************************************************** */",
+            "",
+            "",
+            "",
+            "/* **********************************************************************************************",
+            "         servizi ",
+            "********************************************************************************************** */",
+            "router",
+            "    .get('/', (req, res) => {",
+            "       res.send(new Response(req, 'ok'))",
+            "    })",
+            "    $1"
+        ],
+        "description": "file servizi backend setup"
+    },
+    "BK service": {
+        "prefix": ":bs",
+        "body": [
+            ".post('/${1:servizio}', (req, res) => { ",
+            "   try {",
+            "      var u = dm.checkuser(req)",
+            "      var {${2:id}} = req.body;",
+            "      var db = dm.dbapp();",
+            "      $3",
+            "      db.chiudi()",
+            "      res.send(new Response(req, 'ok'))",
+            "   } catch (e) { res.send(new Response(req, undefined, e)); }",
+            "})",
+            "$4"
+        ],
+        "description": "inserisce un nuovo servizio"
+    },
+    "BK sinput service": {
+        "prefix": ":bsi",
+        "body": [
+            ".post('/${1:sInput}', (req, res) => { ",
+            "   try {",
+            "      var u = dm.checkuser(req)",
+            "      var { input, max } = req.body;",
+            "      max = parseInt(max); if (!max) max = 5;",
+            "      if (input.indexOf('%') < 0) input = `%\\${input}%`",
+            "      var db = dm.dbapp();",
+            "      var r = db.all(`${2:select rowid id,name des from users where annulla=0 and name like ? order by name limit ${max}}`, input);",
+            "      db.chiudi();",
+            "      res.send(new Response(req, r))",
+            "   } catch (e) { res.send(new Response(req, undefined, e)); }",
+            "})",
+            "$3"
+        ],
+        "description": "inserisce un nuovo servizio"
+    }
+}

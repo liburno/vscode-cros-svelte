@@ -4,7 +4,7 @@ Raccolta di snippets per facilitare la scrittura di codice con il framework "Cro
 
 Sono previsti diversi Snippets divisi in categorie: 
 
-- backend (nodejs+express+liburno_lib)
+- backend:  (nodejs+express+liburno_lib)
 - svelte : prototipo per componenti
 - frontend js: import e componenti
 - frontend HTML: componenti di base
@@ -13,13 +13,16 @@ Sono previsti diversi Snippets divisi in categorie:
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+tutti gli snippet si richiamano con :<nome>, e un breve menu 
+viene generato con il significato di ogni snippet
 
-For example if there is an image subfolder under your extension project workspace:
+Per quelli relativi a Javascript sono importanti i prefissi:
 
-\!\[feature X\]\(images/feature-x.png\)
+- :c => canvas related, per il disegno con canvas 2D
+- :b => backend
+- :p => pdf
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+Per quelli relativi a Svelte, non ci sono attenzioni, salvo per la creazione di un file vuoto `::` e propotipo per canvas `::c`. Il resto corrisponde al nome del componente ad esempio
 
 ## Requirements
 

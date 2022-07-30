@@ -1,0 +1,324 @@
+{
+    "Impostazione iniziale file": {
+        "prefix": "::",
+        "body": [
+            "<script>",
+            "   /* **********************************************************************************************",
+            "                  importazione componenti",
+            "   ********************************************************************************************** */",
+            "   import { bus, user, post, lang, _ } from '$$lib/post.js';",
+            "   import { onMount, onDestroy, createEventDispatcher } from 'svelte';",
+            "   import { setStorage, getStorage } from '$$lib/utils.js';",
+            "   import { fly, fade } from 'svelte/transition';",
+            "   ",
+            "   import T from '$$base/T.svelte';",
+            "   import Scheda from '$$base/Scheda.svelte';",
+            "   import Btn from '$$base/Btn.svelte';",
+            "   import Icon from '$$base/Icon.svelte';",
+            "   import Topbar from '$$base/Topbar.svelte';",
+            "   import Input from '$$base/Input.svelte';",
+            "   import Json from '$$base/Json.svelte';",
+            "   import Msg from '$$base/Msg.svelte';",
+            "   ",
+            "   const emit = createEventDispatcher();",
+            "   ",
+            "   /* **********************************************************************************************",
+            "                  Definizione variabili",
+            "   ********************************************************************************************** */",
+            "   let valid=false;",
+            "   ",
+            "   onMount(async () => {",
+            "      valid = true;",
+            "    });",
+            "   ",
+            "</script>",
+            "",
+            "{#if valid}",
+            "   htlm",
+            "{/if}",
+            "$1",
+        ],
+        "description": "Prototipo per file"
+    },
+    "Impostazione progetto con canvas": {
+        "prefix": "::c",
+        "body": [
+            "<script>",
+            "   /* **********************************************************************************************",
+            "                  importazione componenti",
+            "   ********************************************************************************************** */",
+            "   import { bus, user, post, lang, _ } from '\\$lib/post.js';",
+            "   import { onMount, onDestroy, createEventDispatcher } from 'svelte';",
+            "   import { setStorage, getStorage } from '\\$lib/utils.js';",
+            "   import { fly, fade } from 'svelte/transition';",
+            "   import { UI, UIBtn, UICustom } from '\\$2d/ui.js';",
+            "   ",
+            "   import T from '\\$base/T.svelte';",
+            "   import Canvas from '\\$2d/Canvas.svelte';",
+            "   import Scheda from '\\$base/Scheda.svelte';",
+            "   import Btn from '\\$base/Btn.svelte';",
+            "   import Icon from '\\$base/Icon.svelte';",
+            "   import Topbar from '\\$base/Topbar.svelte';",
+            "   import Input from '\\$base/Input.svelte';",
+            "   import Json from '\\$base/Json.svelte';",
+            "   import Msg from '\\$base/Msg.svelte';",
+            "   ",
+            "   const emit = createEventDispatcher();",
+            "   ",
+            "   /* **********************************************************************************************",
+            "                  Definizione variabili",
+            "   ********************************************************************************************** */",
+            "   let valid = false;",
+            "   let ui;",
+            "   function doclick(e) {",
+            "       var { s, x, y } = e.detail;",
+            "       ui.click(s, x, y);",
+            "   }",
+            "   var click = (e) => {",
+            "      var k = e.text || e.key || '';",
+            "      emit('key', k.toUpperCase());",
+            "   };",
+            "",
+            "   /* **********************************************************************************************",
+            "                     Canvas",
+            "   ********************************************************************************************** */",
+            "",
+            "   function setup(s, first) {",
+            "      if (first) {",
+            "          ui = new UI(s.CW);",
+            "          s.key('QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm'.split(''), click);",
+            "      } else {",
+            "      }",
+            "   }",
+            "",
+            "   function draw(s, fc) {",
+            "      if (!hidden) {",
+            "         ui.recalcbuttsize(s.CW);",
+            "         ui.draw(s);",
+            "      }",
+            "   }",
+            "",
+            "   onMount(async () => {",
+            "       valid = true;",
+            "   });",
+            "</script>",
+            "",
+            "{#if valid}",
+            "   <Canvas framerate={10} {draw} {setup} on:click={doclick} auto />",
+            "{/if}",
+            "$1",
+        ],
+        "description": "Prototipo per file con canvas"
+    },
+	"Canvas": {
+		"prefix": ":canvas",
+		"body": [
+		   "<Canvas framerate={10} {draw} {setup} auto ${1:readonly} ${2:on:click on:mousedown on:mousemove on:mouseup} />",
+		   "$3"
+		],
+		"description": "Canvas 2d"
+	},
+	"Msg": {
+		"prefix": ":msg",
+		"body": [
+		   "<Msg ${1|yesno,yesnocancel, |} show={${2:isshow}} on:close={${3:doshow}} title=\"\" text=\"${4:vuoi salvare?}\" />",
+		   "$5"
+		],
+		"description": "Messaggio"
+	},
+	"Msg slot": {
+		"prefix": ":ms2",
+		"body": [
+			"<Msg close show={${1:isshow}} on:close={()=>$1=false} >",
+            "   <div class=${2:\"bg-white p-4 h-48\"}>",
+            "     $3",
+            "   </div>",
+			"</Msg>",
+    	],
+		"description": "Messaggio completamente gestito nello slot"
+	},
+	"Btn": {
+		"prefix": ":btn",
+		"body": [
+		   "<Btn value=${1:\"premi\"} ${2| ,primary,secondary,tertiary,link,warning,danger,blue|} ${3| ,small,big|} />",
+		   "$4"
+		],
+		"description": "Bottone"
+	},
+	"Check": {
+		"prefix": ":check",
+		"body": [
+		   "<Check bind:value={${1:value}} truevalue=1 falsevalue=0 label=\"${2:prova}\" ${3| ,checkbox,readonly|} />",
+		   "$4"
+		],
+		"description": "Check box"
+	},
+	"Header": {
+		"prefix": ":header",
+		"body": [
+		   "<Header title=\"${1:title}\" keywords = \"$2\" autore = \"${3:aa}\" des=\"${4:descrizione}\" />",
+		   "$5"
+		],
+		"description": "header html, imposta i vari meta..."
+	},
+	"Icon": {
+		"prefix": ":icon",
+		"body": [
+		   "<Icon img=\"${1:close}\" ${2|mat,mat2|} size={8} ${3| ,pixel|} ${4| ,color=\"bg-gray-400 hover:bg-black\"|}/>", 
+		   "$5"
+		],
+		"description": "Inserisci una icona"
+	},
+	"Input": {
+		"prefix": ":input",
+		"body": [
+		   "<Input ${1| ,small|} type=\"${2|text,number,date,password,email,area,select|}\" bind:value={${3:value}} label=\"${4:label}\" ${5:placeholder=\"$6\" tooltip=\"$7\" ${8| ,valid,error,disabled,readonly|}} />",
+		   "$9"
+		],
+		"description": "input testo"
+	},
+	"Input Select": {
+		"prefix": ":select",
+		"body": [
+		   "<Input ${1| ,small|} type=\"select\" options={[${2:{id:'a',des:'des a'\\},'b']}} bind:value={${3:value}} label=\"${4:label}\" ${5| ,valid,error,disabled,readonly|} />",
+		   "$6"
+		],
+		"description": "input testo select"
+	},
+	
+	"Json": {
+		"prefix": ":json",
+		"body": [
+		   "<Json value={$1} ${2| ,open|}/>",
+		   "$3"
+		],
+		"description": "mostra il contenuto di un oggetto"
+	},
+	"Libloader": {
+		"prefix": ":libloader",
+		"body": [
+		   "<Libloader ${1|url=\"\" integrity=\"\",css=\"\" cssintegrity=\"\"|} />",
+		   "$2"
+		],
+		"description": "aggiunge il load di una libreria quando serve"
+	},
+	"Lorem": {
+		"prefix": ":lorem",
+		"body": [
+		   "<Lorem n={${1:5}} />",
+		   "$2"
+		],
+		"description": "spazio con scrittura di testo casuale"
+	},
+	
+	"Scheda": {
+		"prefix": ":scheda",
+		"body": [
+		   "<Scheda show={${1:isscheda}} ${2|left,right,up,bottom|} ${3| ,top,bottom,center|} ${4| ,close|} xl={${5:0}} >",
+		   "    $6",
+		   "</Scheda>",
+		],
+		"description": "crea un scheda visibile tramite variabile, con ingresso da direzioni (left, ...) posizione schermo oppure top,botto,... pulsance close e larghezza schermo i vincolata a max-xl..."
+	},
+	"Search": {
+		"prefix": ":search",
+		"body": [
+		   "<Search bind:value={${1:search}} placeholder=\"$2\" on:click/>",
+		   "$3"
+		],
+		"description": "search input"
+	},
+	"Sinput": {
+		"prefix": ":sinput",
+		"body": [
+		   "<Sinput bind:value={${1:cerca}} label=\"${2}\" placeholder=\"${3}\" service=\"${4:games/sCruci}\" on:click={(e) => {value = e.detail.id;}} />",
+		   "$5"
+		],
+		"description": "ricerca tramite il servizio "
+	},
+	"Stars": {
+		"prefix": ":stars",
+		"body": [
+		   "<Stars value={${1:5}} ${2| ,editable|} />",
+		   "$3"
+		],
+		"description": "stelline!"
+	},
+	"T": {
+		"prefix": ":t",
+		"body": [
+		   "<T id=\"$1\" ${2| ,noadd|} ${3| ,html|}/>",
+		   "$4"
+		],
+		"description": "Traduzione"
+	},
+	"Topbar": {
+		"prefix": ":topbar",
+		"body": [
+		   "<Topbar title=\"${1:Title}\" avanti=\"$2\" indietro=\"$3\" ${4| ,back|} on:avanti on:indietro />",
+		   "$5"
+		],
+		"description": "Topbar, generalmente associata a una scheda "
+	},
+	"Upload image": {
+		"prefix": ":upload",
+		"body": [
+		   "<Upload folder = \"${1:im}\" />",
+		   "$2"
+		],
+		"description": "Upload image"
+	},
+	"Upload File": {
+		"prefix": ":uploadfile",
+		"body": [
+		   "<UploadFile folder=\"${1:my}\" ${2| ,multiple|} ${3| ,global|} ${4| ,image|} />",
+		   "$5"
+		],
+		"description": ""
+	},
+	"User": {
+		"prefix": ":user",
+		"body": [
+		   "<User user = {$1} size={${2:10}} ${3| ,name|} ${4| ,pixel|} ${5| ,level|} />",
+		   "$1"
+		],
+		"description": "Avatar utente"
+	},
+	"Edit Markdown": {
+		"prefix": ":mdedit",
+		"body": [
+		   "<Editmd bind:this={edit} bind:value={${1:value}} />",
+		   "$2"
+		],
+		"description": "Collega md Edit, per accedere alle  alle funzioni interne per upload files e immagini vedi blog/art_id.svelte"
+	},
+	"Markdown": {
+		"prefix": ":md",
+		"body": [
+		   "<Md value={${1:value}} ${2| ,notitle|} />",
+		   "$3"
+		],
+		"description": "Markdown viewer"
+	},
+	"Input2": {
+		"prefix": ":i2",
+		"body": [
+			"<Input2 type=\"${1|text,number,date,password,email,area|}\" bind:value={${2:value}} descrizione=\"${3:label}\" descrizione2=\"$4\" placeholder=\"$5\" istruzioni=\"$6\" icona=\"$7\" ${8| ,mat,mat2|} ${9| ,readonly|} />",
+		   "$10"
+		],
+		"description": ""
+	},
+	"Input2 slot": {
+		"prefix": ":i2s",
+		"body": [
+			"<Input2 type=\"${1|text,number,date,password,email,area|}\" bind:value={${2:value}} descrizione=\"${3:label}\" descrizione2=\"$4\" placeholder=\"$5\" istruzioni=\"$6\" icona=\"$7\" ${8| ,mat,mat2|} ${9| ,readonly|} >",
+			"   <div slot=\"value\">",
+			"       ${10:{value}}",
+			"   </div>",
+            "   <Input bind:value={${2:value}}/>",
+		   "</Input2>"
+		],
+		"description": " input 2 con slot, per valore e per contenuto "
+	},
+
+}

@@ -1,0 +1,306 @@
+{
+	"Canvas nostroke": {
+		"prefix": ":cnostroke",
+		"body": [
+			".noStroke()",
+			"$1"
+		],
+		"description": "togli stoke"
+	},
+	"Canvas nofill": {
+		"prefix": ":cnofill",
+		"body": [
+			".noFill()",
+			"$1"
+		],
+		"description": "togli fill"
+	},
+	"Canvas clear": {
+		"prefix": ":cclear",
+		"body": [
+			".clear()",
+			"$1"
+		],
+		"description": "Canvas ancella background"
+	},
+	"Canvas bg": {
+		"prefix": ":cbg",
+		"body": [
+			".background(${1:'white'})",
+			"$2"
+		],
+		"description": "Imposta background"
+	},
+	"Canvas push": {
+		"prefix": ":cpush",
+		"body": [
+			".push()",
+			"$1"
+		],
+		"description": "Push"
+	},
+	"Canvas pop": {
+		"prefix": ":cpop",
+		"body": [
+			".pop(${1| ,true|})",
+			"$2"
+		],
+		"description": "pop"
+	},
+	"Canvas begin path": {
+		"prefix": ":cbp",
+		"body": [
+			".beginPath()",
+			"$1"
+		],
+		"description": "begin path"
+	},
+	"Canvas reset stroke": {
+		"prefix": ":crs",
+		"body": [
+			".resetStroke()",
+			"$1"
+		],
+		"description": "Reset stroke a 0.4"
+	},
+	"Canvas stroke weight": {
+		"prefix": ":csw",
+		"body": [
+			".strokeWeight(${1:1})",
+			"$2"
+		],
+		"description": "Imposta larghezza pennello"
+	},
+	"Canvas stroke": {
+		"prefix": ":cs",
+		"body": [
+			".stroke(${1:'black'},${2:1},${3|0,K.BEVEL,K.ROUND,K.METER|})",
+			"$4"
+		],
+		"description": "imposta pennello: colore , spessore, mode: K.BEVEL,K.ROUND,K.METER"
+	},
+	"Canvas line dash": {
+		"prefix": ":cld",
+		"body": [
+			".setLineDash($1)",
+			"$2"
+		],
+		"description": "Linea in modo dash, con ampiezza (null per reset)"
+	},
+	"Canvas fill": {
+		"prefix": ":cf",
+		"body": [
+			".fill(${1:'white'})",
+			"$2"
+		],
+		"description": "imposta il colore di riempimento: (come css) "
+	},
+	"Canvas align": {
+		"prefix": ":calign",
+		"body": [
+			".align(${1|K.LEFT,K.CENTER,K.RIGHT|},${2|K.TOP,K.CENTER,K.BOTTOM,K.BASELINE|})",
+			"$3"
+		],
+		"description": "allinea il testo"
+	},
+	"Canvas textfont": {
+		"prefix": ":ctf",
+		"body": [
+			".textFont(${1:'12px helvetica'})",
+			"$2"
+		],
+		"description": "imposta dimensione, stile , nome del font separati da spazi"
+	},
+	"Canvas textLight": {
+		"prefix": ":ctl",
+		"body": [
+			".textLight(${1|true,false|})",
+			"$2"
+		],
+		"description": "Font weight: 200 (true/false)"
+	},
+	"Canvas textBold": {
+		"prefix": ":ctb",
+		"body": [
+			".textBold(${1|true,false|})",
+			"$2"
+		],
+		"description": "Font weight: bold (true/false)"
+	},
+	"Canvas textItalic": {
+		"prefix": ":cti",
+		"body": [
+			".textItalic(${1|true,false|})",
+			"$2"
+		],
+		"description": "Font corsivo (true/false)"
+	},
+	"Canvas text size": {
+		"prefix": ":cts",
+		"body": [
+			".textFontsize(${1:12})",
+			"$2"
+		],
+		"description": "Dimensione font"
+	},
+	"Canvas text": {
+		"prefix": ":ct",
+		"body": [
+			".text(${1:'text'},${2:px},${3:py})",
+			"$4"
+		],
+		"description": "Stampa un testo, testo, posizione, dimensioni"
+	},
+	"Canvas line": {
+		"prefix": ":cl",
+		"body": [
+			".line(${1:x,y})",
+			"$2"
+		],
+		"description": "poliLinea, elenco di punti come parametri, on come oggetti vec2"
+	},
+	"Canvas rectangle": {
+		"prefix": ":cr",
+		"body": [
+			".rect(${1:x, y, w, h, tl, tr, br, bl})",
+			"$2"
+		],
+		"description": "rettangolo, posizione e dimensioni, e stondature su ogni lato. se omesso h=w, se omessi tr,br,bl=tl "
+	},
+	"Canvas x begin": {
+		"prefix": ":cxb",
+		"body": [
+			".xbegin()",
+			"$1"
+		],
+		"description": "begin multishape "
+	},
+	"Canvas x end": {
+		"prefix": ":cxe",
+		"body": [
+			".xend()",
+			"$1"
+		],
+		"description": "end and apply multishape "
+	},
+	"Canvas x move": {
+		"prefix": ":cxm",
+		"body": [
+			".xmove(${1:x},${2:y})",
+			"$3"
+		],
+		"description": "move to pos "
+	},
+	"Canvas x line": {
+		"prefix": ":cxl",
+		"body": [
+			".xline(${1:x},${2:y})",
+			"$3"
+		],
+		"description": "line to pos "
+	},
+	"Canvas x arc": {
+		"prefix": ":cxa",
+		"body": [
+			".xarc(${1:x1, y1, x2, y2, rad})",
+			"$2"
+		],
+		"description": "arc to (vedi arcTo canvas)"
+	},
+	"Canvas clear rect": {
+		"prefix": ":ccr",
+		"body": [
+			".clearRect(${1:x, y, w, h = 0})",
+			"$2"
+		],
+		"description": "cancella rettangolo, date posizioni e dimensioni. se manca h=w"
+	},
+	"Canvas circle": {
+		"prefix": ":cci",
+		"body": [
+			".circle(${1:x, y, w, h})",
+			"$2"
+		],
+		"description": "disegna un cerchio o un'ellisse"
+	},
+	"Canvas filter": {
+		"prefix": ":cfilter",
+		"body": [
+			".filter(${1:'none'})",
+			"$2"
+		],
+		"description": "imposta un filtro: vedi documentazione canvas"
+	},
+	"Canvas image": {
+		"prefix": ":ci",
+		"body": [
+			".image(${1:image}, ${2:x, y, w, h})",
+			"$3"
+		],
+		"description": "inserisce una immagine in pos. x,y dim. w,h"
+	},
+	"Canvas image part": {
+		"prefix": ":cip",
+		"body": [
+			".image(${1:image}, ${2:x, y, w, h}, ${3:sourcex,sourcey,sourcew,sourceh} )",
+			"$4"
+		],
+		"description": "inserisce una immagine in pos. x,y dim. w,h, prendendo solo un pezzo da con le coordinate source"
+	},
+	"Canvas matrix rotate": {
+		"prefix": ":cmr",
+		"body": [
+			".rotate(${1:deg})",
+			"$2"
+		],
+		"description": "ruota la matrice di `deg` gradi"
+	},
+	"Canvas matrix translate": {
+		"prefix": ":cmt",
+		"body": [
+			".translate(${1:x, y})",
+			"$2"
+		],
+		"description": "trasla la matrice"
+	},
+	"Canvas matrix scale": {
+		"prefix": ":cms",
+		"body": [
+			".scale(${1:sx, sy})",
+			"$2"
+		],
+		"description": "scala la matrice"
+	},
+	"Canvas points": {
+		"prefix": ":cp",
+		"body": [
+			".point(${1})",
+			"$2"
+		],
+		"description": "elenco punti da disegnare, come parametri o come array di vec2"
+	},
+	"Canvas shape": {
+		"prefix": ":cshape",
+		"body": [
+			".shape(${1})",
+			"$2"
+		],
+		"description": "forma da un elenco punti, come parametri o come array di vec2"
+	},	
+	"Canvas add key callback": {
+		"prefix": ":ck",
+		"body": [
+			".key(${1:'key'},${2:callback},${3:callbackup})",
+			"$4"
+		],
+		"description": "intercetta keydown e keyup per uno specifico tasto, o un vettore di tasti"
+	},		
+	"Canvas apply": {
+		"prefix": ":ca",
+		"body": [
+			".apply()",
+			"$1"
+		],
+		"description": "Applica il contenuto delle modifiche"
+	}		
+}
