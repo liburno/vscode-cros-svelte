@@ -1,12 +1,9 @@
 {
-    "Long Comment": {
-        // prova a commentare
-		"prefix": ":-",
-		"body": [
-			"/* **********************************************************************************************",
-			"         $1",
-			"********************************************************************************************** */",
-		],
-		"description": "Crea un commento lungo"
-	}
+	"VariableSnippet":{
+		"prefix": "!t",
+		"body": "\\$MyVar = 2",
+		"description": "A basic snippet that places a variable into script with the $ prefix"
+	},
+	
+	
 }

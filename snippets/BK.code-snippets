@@ -1,4 +1,14 @@
 {
+    "Commento lungo": {
+        "prefix": [":bc",":bcomment"],
+        "body": [
+            "/* **********************************************************************************************",
+            "         $1",
+            "********************************************************************************************** */",
+            "$2"
+        ],
+        "description": "Crea un commento lungo"
+    },
     "BK file": {
         "prefix": ":bfile",
         "body": [
@@ -54,7 +64,7 @@
             "      max = parseInt(max); if (!max) max = 5;",
             "      if (input.indexOf('%') < 0) input = `%\\${input}%`",
             "      var db = dm.dbapp();",
-            "      var r = db.all(`${2:select rowid id,name des from users where annulla=0 and name like ? order by name limit ${max}}`, input);",
+            "      var r = db.all(`${2:select rowid id,name des from users where annulla=0 and name like ? order by name} limit \\${max}`, input);",
             "      db.chiudi();",
             "      res.send(new Response(req, r))",
             "   } catch (e) { res.send(new Response(req, undefined, e)); }",
@@ -63,4 +73,5 @@
         ],
         "description": "inserisce un nuovo servizio"
     }
+    
 }

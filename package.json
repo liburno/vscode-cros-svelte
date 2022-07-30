@@ -19,7 +19,7 @@
     "snippets": [
       {
         "language": "javascript",
-        "path": "./snippets/snippets.code-snippets"
+        "path": "./snippets/BK.code-snippets"
       },
       {
         "language": "javascript",
@@ -28,11 +28,9 @@
       {
         "language": "svelte",
         "path": "./snippets/svelte.code-snippets"
-      },
-      {
-        "language": "javascript",
-        "path": "./snippets/BK.code-snippets"
       }
+      
+     
     ]
   }
 }
